@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="img1.png">
+    <title>Hello world</title>
+    <style>
+        body
+        {
+            background-image: url('img2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: 100% 100%;
+        }
+        .st0
+        {
+            width: 300px;
+            height:420px;
+            background-color: white;
+            margin-top: 150px;
+            border-radius: 25px;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+        .st1
+        {
+            color:white;
+            background-color:dodgerblue;
+            padding: 10px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: white;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 10px;
+        }
+        .st1:hover
+        {
+            background-color: grey;
+        }
+        * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  background: #eee;
+  background-image: url('img2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: 100% 100%;
+}
+.playing {
+  position: fixed;
+  top: 88%;
+  left: 50%;
+  width: auto;
+  transform: translateX(-50%) translateY(-50%);
+}
+.playing:after {
+ /* content: "Now Playing.";*/
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+.now.playing .bar {
+  display: inline-block;
+  position: relative;
+  margin-right: 1px;
+  width: 10px;
+  height: 1px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #ff9500, #ff5e3a);
+  color: transparent;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.paused.playing .bar {
+  animation-iteration-count: 1;
+}
+.paused.playing:after {
+  content: " "
+}
+.n1 {
+  animation-delay: 0.5s;
+}
+.n2 {
+  animation-delay: 0.2s;
+}
+.n3 {
+  animation-delay: 1.2s;
+}
+.n4 {
+  animation-delay: 0.9s;
+}
+.n5 {
+  animation-delay: 2.3s;
+}
+.n6 {
+  animation-delay: 1.3s;
+}
+.n7 {
+  animation-delay: 3.1s;
+}
+.n8 {
+  animation-delay: 1.9s;
+}
+@keyframes pulse {
+  0% {
+    height: 1px;
+    margin-top: 0;
+  }
+  10% {
+    height: 40px;
+    margin-top: -40px;
+  }
+  50% {
+    height: 20px;
+    margin-top: -20px;
+  }
+  60% {
+    height: 30px;
+    margin-top: -30px;
+  }
+  80% {
+    height: 60px;
+    margin-top: -60px;
+  }
+  100% {
+    height: 1px;
+    margin-top: 0;
+  }
+}
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <center>
+        <div class="st0">
+            <h1>Welcome to this app</h1>
+            <img src="img1.png" style="width: 100px; height: 100px; border-radius: 50%;margin-top: 20px;">
+            <div style="width:300px; margin-top: 30px;">
+                <h3>Follow this:</h3>
+                <ul >
+                    <li>Play any sound in background .</li>
+                    <li>Press on clock and select time.</li>
+                    <li>Then click the button and listen.</li>
+                </ul>
+            </div>
+            <input type="time" id="val1">
+            <br>
+            <button class="st1" onclick="fun1()">Click</button>
+    </div>
+    <div class="now playing" id="music">
+        <span class="bar n1">A</span>
+        <span class="bar n2">B</span>
+        <span class="bar n3">c</span>
+        <span class="bar n4">D</span>
+        <span class="bar n5">E</span>
+        <span class="bar n6">F</span>
+        <span class="bar n7">G</span>
+        <span class="bar n8">H</span>
+      </div>
+      <button onclick="toggle(this)" style="color: #eee;">Kill the Joy.</button>
+    </center>
+    <script src="eel.js"></script>
+    <script>
+        function fun1()
+        {
+            alert("increasing and decrasing sound automatically");
+            var x=document.getElementById("val1").value
+            if(x=="")
+            {
+              alert("Please provide song duration(min,sec)");
+            }
+            else{
+            eel.hello(x);
+            }
+        }
+        function toggle(button) {
+  var player = document.getElementById("music");
+  player.classList.toggle("paused");
+  if (button.innerHTML == "Kill the Joy.") {
+    button.innerHTML = "Crank it up!";
+  } else {
+    button.innerHTML = "Kill the Joy.";
+  }
+}
+    </script>
+</body>
+</html>
